@@ -39,7 +39,10 @@ def update_trade(Trade:str,trade:Trade = Body(embed=True)):
    results= (Trade)
    return results
 
-
+@app.put("/trade1/{trade_id}")
+def update_trade(trade_id:str, trade: Annotated[Trade, Body(embed=True)]):
+   results= {"trade_id":trade_id,"trade":trade}
+   return results
 
 if __name__ == "__main__":
     uvicorn.run(app, host="127.0.0.1", port=8000)
